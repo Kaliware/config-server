@@ -1,0 +1,14 @@
+services:
+  app:
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      CONFIG_SERVER_GIT_URI: ${CONFIG_SERVER_GIT_URI}
+      CONFIG_SERVER_GIT_USERNAME: ${CONFIG_SERVER_GIT_USERNAME}
+      CONFIG_SERVER_GIT_PASSWORD: ${CONFIG_SERVER_GIT_PASSWORD}
+    ports:
+      - "8081:8080"
+    volumes:
+      - ./data:/app/data
