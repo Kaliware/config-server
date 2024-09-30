@@ -1,4 +1,4 @@
-package br.com.kaliwre.ms.config_server;
+package br.com.kaliware.ms.config_server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
