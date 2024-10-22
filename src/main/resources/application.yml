@@ -5,12 +5,19 @@ spring:
     config:
       server:
         git:
-          uri: ${CONFIG_SERVER_GIT_URI}
-          username: ${CONFIG_SERVER_GIT_USERNAME}
-          password: ${CONFIG_SERVER_GIT_PASSWORD}
-          clone-on-start: true
-          force-pull: true
-          basedir: ${BASE_DIR}
+          uri: ${CONFIG_SERVER_GIT_URI:http://exemplo.git}
+          username: ${CONFIG_SERVER_GIT_USERNAME:}
+          password: ${CONFIG_SERVER_GIT_PASSWORD:}
+          clone-on-start: ${CONFIG_SERVER_CLONE_ON_START:true}
+          force-pull: ${CONFIG_SERVER_FORCE_PULL:true}
+          basedir: ${BASE_DIR:/tmp/config-repo}
+          search-paths: ${CONFIG_SERVER_SEARCH_PATHS:}
+          default-label: ${CONFIG_SERVER_DEFAULT_LABEL:main}
+          timeout: ${CONFIG_SERVER_GIT_TIMEOUT:3000}
+          skip-ssl-validation: ${CONFIG_SERVER_SKIP_SSL_VALIDATION:false}
+          ignore-local-ssh-settings: ${CONFIG_SERVER_IGNORE_LOCAL_SSH:false}
+      allowOverride: ${CONFIG_SERVER_ALLOW_OVERRIDE:true}
+      overrideNone: ${CONFIG_SERVER_OVERRIDE_NONE:false}
+      overrideSystemProperties: ${CONFIG_SERVER_OVERRIDE_SYSTEM_PROPERTIES:true}
 server:
   port: ${PORT:8080}
-
